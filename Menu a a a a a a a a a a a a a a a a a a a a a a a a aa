@@ -1280,7 +1280,7 @@ end)
 
 --// Desync_Source
 function RandomNumberRange(a)
-	return math.random(-a * 100, a * 100) / 100
+	return math.random(-a * 50, a * 50) / 50
 end
 
 function RandomVectorRange(a, b, c)
