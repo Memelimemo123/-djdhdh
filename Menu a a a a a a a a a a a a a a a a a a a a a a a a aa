@@ -114,12 +114,7 @@ LockTab:AddButton({
   	end    
 })
 
-LockTab:AddButton({
-	Name = "Blazed",
-	Callback = function()
-      		loadstring(game:HttpGet("https://blazed.lol/source.lua",true))()
-  	end    
-})
+
 
 LockTab:AddButton({
 	Name = "Hitbox Expander(C)",
@@ -150,7 +145,7 @@ getgenv().Circle = true
     Tracer.Name = "gay"	
     Tracer.Anchored = true		
     Tracer.CanCollide = false
-    Tracer.Transparency = 0.2
+    Tracer.Transparency = 0.8
     Tracer.Parent = game.Workspace	
     Tracer.Shape = _G.Types.Block
     Tracer.Size = Vector3.new(7,7,7)
@@ -1022,6 +1017,319 @@ LockTab:AddButton({
       		loadstring(game:HttpGet(('https://raw.githubusercontent.com/AvianProjects/Dahood/main/AntilockerV2'),true))()
   	end    
 })
+
+LockTab:AddButton({
+	Name = "Nyula Orbit Lock",
+	Callback = function()
+      		_G.Aiming = {
+    Key = "C", -- Capital Letters Only 
+    Aiming = "Namecall", -- "Namecall", "Index", "OldNyula" -- OldNyula is an FPS killer
+    Mode = "Toggle", -- "Toggle" or "Hold" or "Always"
+    ["Face-Target"] = false, -- Faces the person you're locked onto (If you use with macro it'll macro for you)
+    Notifs = false, -- Uses normal roblox notifications in the bottom right
+    Chat = false, -- "Locked Onto: USERNAME" | "Unlocked!"
+    View = false, -- Views when you lock on and unlock
+    SelfLockOn = true,
+    Camlock = {
+        Enabled = false,
+
+        OnlyWhenInFov = false,
+        OnlyWhenVisible = false,
+
+        Parts = {"HumanoidRootPart"}, -- "Head", "HumanoidRootPart", "LowerTorso", {"Head","HumanoidRootPart","LowerTorso"}, "All", {"All"}
+
+        Smoothing = "New", -- "New" or "Classic" or "Off" <- Off IS THE MOST BLATANT, Classic Doesn't work on UWP
+        Smoothness = 0.85,
+
+        Prediction = 0.160126357, -- Linked up with auto pred
+        AutoPred = true,
+
+        SeperatePrediction = false,
+        HorizontalPrediction = 0.12643, -- Linked up with auto pred
+        VerticalPrediction = 0.06, -- Not linked up with auto pred
+
+        JumpOffset = false,
+        JumpOffsetVal = 0, -- Negative for Down | Positive for Up
+
+        Shake = {
+            On = false,
+            LeftRight = 0,
+            UpDown = 0,
+            Division = 1, -- keep at 1 or above
+        },
+        
+        FOV = {
+            Toggle = false,
+            Color = Color3.fromRGB(119,0,255),
+            Size = 100,
+            Thickness = 2,
+            Filled = false,
+            Transparency = 1,
+            Rainbow = false,
+        },
+    },
+    SilentAim = { -- Silent Aim is always better when using desync
+        Toggle = false, -- Entire Silent Aim doesn't load if not being used
+        OnlyWhenInFov = false,
+        OnlyWhenVisible = false,
+        Parts = {"HumanoidRootPart"},
+
+        Prediction = 0.160126357, -- Linked up with auto pred
+        AutoPred = true,
+        
+        SeperatePrediction = false, -- New In V5
+        HorizontalPrediction = 0.12643, -- Linked up with auto pred -- New In V5
+        VerticalPrediction = 0.06, -- Not linked up with auto pred -- New In V5
+
+        AutoPred = false,
+        Hitchance=100,
+
+        JumpOffset = false,
+        JumpOffsetVal = 0, -- Negative for Down | Positive for Up
+        
+        Shake = {
+            On = false,
+            LeftRight = 0,
+            UpDown = 0,
+            Division = 1, -- keep at 1 or above
+        },
+
+        FOV = {
+            Toggle = false,
+            Color = Color3.fromRGB(119,0,255),
+            Size = 100,
+            Thickness = 2,
+            Filled = false,
+            Transparency = 1,
+            Rainbow = false,
+        },
+    },
+    Resolvers = {
+        Resolver = "Off", -- "Off", "V1", "V2","Movement", "Movement V2", MUST BE SET TO "Off" IF NOT USING A RESOLVER OR THERE WILL BE NO PREDICTION
+        ["V1-Delay"] = 0.085,
+        ["V2-Smoothing"] = 8,
+        ["Movement-V2-Smoothing"] = 8, -- New In V5
+        Aimpart = "HumanoidRootPart",
+        ["Anti-Sky"] = {
+            On = false,
+            Method = "HighestPoint", -- "Torso", "HighestPoint" -- New In V5
+        },
+        ["Anti-UnderGround"] = {
+            On = false,
+            Method = "LowestPoint", -- "Torso", "LowestPoint" -- New In V5
+        },
+        AutoResolver = {
+            On = false,
+            ResolverPriority = "V2", -- "V1" "V2" Doesn't use movement yet
+            MaxHorizontal = 35,
+            MaxVertical = 50,
+            CheckStanding = false,
+        },
+    },
+    Onshot = {
+        Visuals = {
+            Toggle = true,
+            Color = Color3.fromRGB(119,0,255),
+            Material = "ForceField",
+            Confetti = false,
+            Life = 1,
+            Particles = {
+                Enabled = false,
+                Name = "Orbitals", -- "Orbitals" or "Lightning"
+            }
+        },
+        Sound = {
+            Toggle = true,
+            ID = 5447626464, -- String for Path, Number for Roblox ID
+        },
+    },
+    Selection = {
+        ["Check-For-Part"] = "HumanoidRootPart",
+        FOV = {
+            Toggle = false,
+            Color = Color3.fromRGB(119,0,255),
+            Size = 100,
+            Thickness = 2,
+            Filled = false,
+            Transparency = 1,
+            Rainbow = false,
+        },
+        VisibilityCheck = false,
+        DownCheck = false,
+        DistancePriority = false,
+    },
+    Visuals = {
+        Dot = { -- SilentAim Only
+            Toggle = true,
+            Color = Color3.fromRGB(119,0,255),
+            Rainbow = false,
+        },
+        Tracer = {
+            Toggle = true,
+            Color = Color3.fromRGB(119,0,255),
+            Rainbow = false,
+        },
+        Highlight = {
+            Toggle = true,
+            Color = Color3.fromRGB(119,0,255),
+            Rainbow = false,
+        },
+        PredictionLine = { -- SilentAim Only
+            Toggle = false,
+            Color = Color3.fromRGB(119,0,255),
+            Rainbow = false,
+            Width = 0.2,
+            Material = "ForceField",
+        },
+        FakeHitbox = true,
+        TargetInfo = true,
+    },
+    TriggerBot = { 
+        Toggle = false,
+        Delay = 0, -- 1000 in gui = 1 here (1 in gui is 0.001 delay aka 1ms idek if lua goes that low but gl blud)
+        Precision = { -- How close your mouse has to be 
+            X = 1.5,
+            Y = 1.5,
+            Z = 1.5,
+        }
+    },
+    Orbit = {
+        Toggle = true, -- fix this !!!!!! 💣💣💣💣💣💣
+        Mode = "Disconnect", -- "Disconnect" or "Connect"
+        DistanceLimiter = false, -- true for hood modded
+        DistanceLimit = 40, -- 30-50 for Hood Modded
+        Speed = 50,
+        Size = 8,
+        Height = 15,
+        Velocity = {
+            Toggle = false,
+            X = 0,
+            Y = 0,
+            Z = 0,
+        },
+    },
+    AntiAimViewer = false, -- Uses Silent Aim
+    GunTypeFov={
+        Toggle = false,
+        ["Default"] = 100,
+        ["Shotguns"] = 100,
+        ["Pistols"] = 100,
+        ["SMGs"] = 100,
+        ["ARs"] = 100,
+        ["LMGs"] = 100,
+    },
+    HoodDuels = false,
+}
+
+loadstring(game:HttpGet("https://nyulachan.github.io/nyula/v5/streamable", true))()
+  	end    
+})
+LockTab:AddButton({
+	Name = "Oblivity God Mode Leaked (T)",
+	Callback = function()
+      		local P1000ToggleKey = "T" -- Change that to whatever keybind: "t"
+
+
+--[[
+
+	Standing still will trick the hitbox, you won't be able to get hit.
+
+
+	DO NOT EDIT BEYOND THIS POINT IF YOU DON'T UNDERSTAND WHAT IS GOING ON.
+	
+	ORIGINAL SOURCE PUT INTO SKID FRIENDLY FORMAT TAKE WHAT YOU LIKE AND MAKE MANY MORE OBLIVITIES CLONES WITH THIS OR EVEN YOUR VERY OWN DIY OBLIVITY!
+	
+	AND REMEMBER TO SAY, SO LOOOOONG OBLIVITYYYYYY!!!
+
+
+--]]
+
+
+--// Services
+checkcaller = checkcaller
+newcclosure = newcclosure
+hookmetamethod = hookmetamethod
+
+local PastedSources = false
+local BruhXD = game:GetService("RunService")
+local LocalPlayer = game:GetService("Players").LocalPlayer
+local Bullshit = LocalPlayer:GetMouse()
+
+
+--// Toggles
+Bullshit.KeyDown:Connect(function(SayNoToOblivity)
+	if SayNoToOblivity == string.lower(P1000ToggleKey) then
+		pcall(function()
+			if PastedSources == false then
+				PastedSources = true
+				print("Enabled P1000")
+			elseif PastedSources == true then
+				PastedSources = false
+				print("Disabled P1000")
+			end
+		end)
+	end
+end)
+
+Bullshit.KeyDown:Connect(function(SayNoToOblivity)
+	if SayNoToOblivity == ("=") then
+		game:GetService("TeleportService"):Teleport(game.PlaceId, LocalPlayer) 
+	end
+end)
+
+
+--// Desync_Source
+function RandomNumberRange(a)
+	return math.random(-a * 100, a * 100) / 100
+end
+
+function RandomVectorRange(a, b, c)
+	return Vector3.new(RandomNumberRange(a), RandomNumberRange(b), RandomNumberRange(c))
+end
+
+
+local DesyncTypes = {}
+BruhXD.Heartbeat:Connect(function()
+	if PastedSources == true then
+		DesyncTypes[1] = LocalPlayer.Character.HumanoidRootPart.CFrame
+		DesyncTypes[2] = LocalPlayer.Character.HumanoidRootPart.AssemblyLinearVelocity
+
+		local SpoofThis = LocalPlayer.Character.HumanoidRootPart.CFrame
+
+		SpoofThis = SpoofThis * CFrame.new(Vector3.new(0, 0, 0))
+		SpoofThis = SpoofThis * CFrame.Angles(math.rad(RandomNumberRange(180)), math.rad(RandomNumberRange(180)), math.rad(RandomNumberRange(180)))
+
+		LocalPlayer.Character.HumanoidRootPart.CFrame = SpoofThis
+
+		LocalPlayer.Character.HumanoidRootPart.AssemblyLinearVelocity = Vector3.new(1, 1, 1) * 16384
+
+		BruhXD.RenderStepped:Wait()
+
+		LocalPlayer.Character.HumanoidRootPart.CFrame = DesyncTypes[1]
+		LocalPlayer.Character.HumanoidRootPart.AssemblyLinearVelocity = DesyncTypes[2]
+	end
+end)
+
+
+--// Hook_CFrame
+local XDDDDDD = nil
+XDDDDDD = hookmetamethod(game, "__index", newcclosure(function(self, key)
+	if PastedSources == true then
+		if not checkcaller() then
+			if key == "CFrame" and PastedSources == true and LocalPlayer.Character and LocalPlayer.Character:FindFirstChild("HumanoidRootPart") and LocalPlayer.Character:FindFirstChild("Humanoid") and LocalPlayer.Character:FindFirstChild("Humanoid").Health > 0 then
+				if self == LocalPlayer.Character.HumanoidRootPart then
+					return DesyncTypes[1] or CFrame.new()
+				elseif self == LocalPlayer.Character.Head then
+					return DesyncTypes[1] and DesyncTypes[1] + Vector3.new(0, LocalPlayer.Character.HumanoidRootPart.Size / 2 + 0.5, 0) or CFrame.new()
+				end
+			end
+		end
+	end
+	return XDDDDDD(self, key)
+end))
+  	end    
+})
+
 
 LockTab:AddButton({
     Name = "Resolver",
